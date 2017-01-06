@@ -15,7 +15,7 @@
     
                 <?php if (metadata('item', 'has thumbnail')): ?>
                 <div class="item-img">
-                    <?php echo link_to_item(item_image('square_thumbnail', array('alt' => $itemTitle))); ?>
+                    <?php echo link_to_item(item_image('square_thumbnail', array('alt' => $itemTitle, 'class'=>'img-thumbnail'))); ?>
                 </div>
                 <?php endif; ?>
     

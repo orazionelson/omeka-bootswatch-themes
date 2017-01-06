@@ -22,7 +22,8 @@
 
     <!-- Need to add custom and third-party CSS files? Include them here -->
     <?php
-        queue_css_file('lib/bootstrap.min');
+		$bootswatch_theme=get_theme_option('Style Sheet');
+        queue_css_file($bootswatch_theme.'/bootstrap.min');
         queue_css_file('style');
         echo head_css();
     ?>
@@ -40,34 +41,48 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-    <header role="banner">
-        <div class="container">
-            <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
-            <h1 class="site-title text-center"><?php echo link_to_home_page(theme_logo()); ?></h1>
-            <h5 class="text-center"><?php echo __('A Sample Omeka Theme'); ?></h5>
+    <nav class="navbar navbar-default navbar-fixed-top"><!-- navbar-fixed-top -->
+      <div class="container">
+        <div class="navbar-header">
+          <?php echo bs_link_logo_to_navbar(); ?>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
-
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-navigation">
-                        <span class="sr-only">Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse" id="primary-navigation">
-                    <?php echo public_nav_main_bootstrap(); ?>
-
-                    <form class="navbar-form navbar-right" role="search" action="<?php echo public_url(''); ?>search">
-                        <?php echo search_form(array('show_advanced' => false)); ?>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main id="content" role="main">
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <?php echo public_nav_main_bootstrap(); ?>
+          <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'navbar-form navbar-right'))); ?>
+        </div>
+      </div>
+    </nav>
+    <?php if ((get_theme_option('display_header') !== '0')): ?>
+    <header id="banner" class="<?php echo get_theme_option('header_flow'); ?> page-header" style="background-size:cover;background-image:url('<?php 
+		if ((get_theme_option('Header Background Image') === null)){
+			echo img('defaulthbg.jpg');
+		}			
+		else echo bs_header_bg(); 
+		?>');">
+		<div class="row header-row">
+			<?php if ((get_theme_option('header_logo_image') !== null)): ?>
+			<div class="col-md-2 col-md-offset-1" id="header-logo-holder">
+				 <?php echo bs_header_logo(); ?>
+			</div>
+			<?php endif; ?>
+			<div class="col-md-8" id="header-claim-holder">
+				<div class="well">
+				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
+					<h1><?php echo get_theme_option('header_image_heading'); ?></h1>
+				<?php endif; ?>
+				<?php if ((get_theme_option('header_image_text') !== '')): ?>
+					<p><?php echo get_theme_option('header_image_text'); ?></p>
+				<?php endif; ?>
+				</div>			
+			</div>
+		</div>
+    </header>  
+    <?php endif; ?>  
+    <main id="content">
       <div class="container">
           <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

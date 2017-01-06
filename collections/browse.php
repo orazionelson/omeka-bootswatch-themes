@@ -25,8 +25,8 @@
                 <div class="collection">
                     <div class="row">
                         <div class="col-sm-2">
-                            <?php if ($collectionImage = record_image('collection', 'square_thumbnail')): ?>
-                                <?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
+                            <?php if ($collectionImage = record_image('collection', 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
+                                <?php echo link_to_collection($collectionImage, array('class' => 'img')); ?>
                             <?php endif; ?>
                         </div>
                         <div class="col-sm-3">

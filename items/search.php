@@ -4,9 +4,10 @@
 ?>
 
     <h1><?php echo $pageTitle; ?></h1>
-    <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+    <?php echo public_nav_pills_bootstrap(); ?>
+    <div class="clearfix"></div>
     <hr>
 
-    <?php echo $this->partial('items/search-form.php', array('formAttributes' => array('id'=>'advanced-search-form'))); ?>
+    <?php echo $this->partial('items/search-form.php', array('formAttributes' => array('id'=>'advanced-search-form', 'class'=>'form-horizontal'))); ?>
 
 <?php echo foot(); ?>

@@ -4,7 +4,11 @@
 ?>
 
     <h1><?php echo 'Browse all items'; ?></h1>
-    <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+    
+    <?php
+    echo public_nav_pills_bootstrap(); 
+    ?>
+    <div class="clearfix"></div>
     <hr>    
 
     <div class="browse-items">
@@ -16,7 +20,12 @@
             <div class="browse-items-header hidden-xs">
                 <div class="row">
                     <div class="col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2">
-                        <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
+                        <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array(
+        'link_tag' => 'li',
+        'list_tag' => 'ul',
+        'link_attr' => array(),
+        'list_attr' => array( 'class' => 'sort-links-list' )
+    )); ?>
                     </div>
                     <div class="col-sm-3 col-md-2">
                         <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
@@ -36,9 +45,11 @@
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
-                                echo link_to_item('<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>');
+							//echo file_display_url($image[0]);
+                                echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
+                                
                             } else {
-                                echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
+								echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class="img-thumbnail img-responsive">');
                             }
                         ?>
                     </div>

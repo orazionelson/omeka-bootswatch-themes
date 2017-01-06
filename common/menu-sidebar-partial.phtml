@@ -1,0 +1,29 @@
+<div class="list-group table-of-contents">
+    <?php $count = 0 ?>
+    <?php foreach ($this->container as $page): ?>
+        <?php if( ! $page->isVisible() || !$this->navigation()->accept($page)) continue; ?>
+			<?php $hasChildren = $page->hasPages() ?>
+			<?php if( ! $hasChildren): ?>
+			<a class="list-group-item<?php if($page->isActive()) echo ' active'?>" href="<?php echo $page->getHref() ?>">
+				<?php echo $this->translate($page->getLabel()) ?>
+			</a>
+        <?php else: ?>
+            
+                <a class="list-group-item <?php if($page->isActive()) echo 'active'; ?>" data-toggle="collapse" href="#spage_<?php echo $count ?>" role="button" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $this->translate($page->getLabel()) ?>
+                    <span class="caret"></span>
+                </a>
+
+                <div class="collapse" id="spage_<?php echo $count ?>">
+                    <?php foreach($page->getPages() as $child): ?>
+                        <?php if( ! $child->isVisible() || !$this->navigation()->accept($child)) continue; ?>
+                            <a style="padding-left:30px; font-size:90%" class="list-group-item <?php if($page->isActive()) echo 'active'; ?>" href="<?php echo $child->getHref() ?>">
+                                <?php echo $this->translate($child->getLabel()) ?>
+                            </a>
+                    <?php endforeach ?>
+                </div>
+              
+        <?php endif; ?>		
+        <?php $count++ ?>
+    <?php endforeach; ?>
+</div>

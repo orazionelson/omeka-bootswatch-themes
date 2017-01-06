@@ -1,15 +1,18 @@
-Omeka Starter Theme
-===================
+Omeka Bootswatch Themes
+=======================
+by [Alfredo Cosco](http://www.nelsonweb.it)
 
-A starter Omeka theme, built for Omeka v2.2.2, featuring Twitter Boostrap v3.3.2.
+https://github.com/orazionelson/omeka-bootswatch-themes
 
-*  Responsive grid system for cross-platform viewing
-*  Most page templates available
-*  Open and available for anyone to use
+A porting of Bootswatch skins built for Omeka v2.4.0, featuring Twitter Boostrap v3.3.7.
 
-### Questions? Requests?
-If you have questions or comments, feel free to contact hello@interactivemechanics.com, or submit issues/pull requests directly to the repository. If you have specific requests, let us know!
+<h1>Install</h1>
+1) Go to your Omeka Themes directory.
 
-### Recent additions
-*  9/15/15: Added in a custom Zender partial for creating Bootstrap navigations (with dropdowns)
-*  3/11/15: Added in the latest version of Twitter Bootstrap
+2) git clone https://github.com/orazionelson/omeka-bootswatch-themes.git
+
+<h2>Sites</h2>
+[Omeka](https://omeka.org/)
+
+[Bootswatch](https://bootswatch.com/)
+
