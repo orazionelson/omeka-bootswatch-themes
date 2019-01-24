@@ -4,7 +4,7 @@ by [Alfredo Cosco](http://www.nelsonweb.it)
 
 https://github.com/orazionelson/omeka-bootswatch-themes
 
-A porting of Bootswatch skins built for Omeka v2.4.0, featuring Twitter Boostrap v3.3.7.
+A porting of Bootswatch skins built for Omeka v2.4.0, featuring Twitter Boostrap v4.2.1.
 
 <h1>Install</h1>
 1) Go to your Omeka Themes directory.
