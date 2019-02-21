@@ -8,7 +8,15 @@
 		$sidebar_add=" col-md-pull-8";
 		}
 ?>
-
+<?php
+	$layout=get_theme_option('landing_page_layout');
+	if ($layout == 'entirescreen')
+		$main_file ='common/testermain.phtml';
+	elseif ($layout == 'half')
+		$main_file ='common/test2main.phtml';
+	else
+		$main_file ='common/loremize-main.phtml';
+?>
 
 <?php if ($sidebar_pos=='right'): ?>
 <div class="row">
@@ -16,7 +24,7 @@
 		<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
 			<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
 		<?php else: ?>
-		<?php echo $this->partial('common/loremize-main.phtml');?>
+		<?php echo $this->partial($main_file);?>
 		<?php endif; ?>
 		<?php
 	    $recentItems = get_theme_option('Homepage Recent Items');
@@ -72,7 +80,7 @@
 			<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
 				<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
 			<?php else: ?>
-			<?php echo $this->partial('common/loremize-main.phtml');?>
+			<?php echo $this->partial($main_file);?>
 			<?php endif; ?>
 			<?php
 		    $recentItems = get_theme_option('Homepage Recent Items');
@@ -128,7 +136,7 @@
 			<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
 				<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
 			<?php else: ?>
-			<?php echo $this->partial('common/loremize-main.phtml');?>
+			<?php echo $this->partial($main_file);?>
 			<?php endif; ?>
 			<?php
 		    $recentItems = get_theme_option('Homepage Recent Items');
