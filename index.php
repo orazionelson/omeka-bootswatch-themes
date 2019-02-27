@@ -1,12 +1,6 @@
 <?php
 	echo head(array('bodyid'=>'home'));
 	$sidebar_pos=get_theme_option('sidebar_position');
-	$main_add="";
-	$sidebar_add="";
-	if($sidebar_pos=='left'){
-		$main_add=" col-md-push-4";
-		$sidebar_add=" col-md-pull-8";
-		}
 ?>
 <?php
 	$layout=get_theme_option('landing_page_layout');
