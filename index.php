@@ -1,15 +1,21 @@
+<?php $file = 'header' ?>
+
+<?php
+	$layout=get_theme_option('landing_page_layout');
+	if ($layout == 'entirescreen') {
+		$main_file ='common/testermain.phtml';
+		$file = 'headerMain';
+	}
+	elseif ($layout == 'half') {
+		$main_file ='common/testmain.phtml';
+		$file = 'headerMain';
+	}
+	else
+		$main_file ='common/testmain.phtml';
+?>
 <?php
 	echo head(array('bodyid'=>'home'));
 	$sidebar_pos=get_theme_option('sidebar_position');
-?>
-<?php
-	$layout=get_theme_option('landing_page_layout');
-	if ($layout == 'entirescreen')
-		$main_file ='common/testermain.phtml';
-	elseif ($layout == 'half')
-		$main_file ='common/test2main.phtml';
-	else
-		$main_file ='common/loremize-main.phtml';
 ?>
 
 <?php if ($sidebar_pos=='right'): ?>
