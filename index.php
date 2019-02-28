@@ -14,7 +14,7 @@
 		$main_file ='common/testmain.phtml';
 ?>
 <?php
-	echo head(array('bodyid'=>'home'));
+	echo head(array('bodyid'=>'home'), $file);
 	$sidebar_pos=get_theme_option('sidebar_position');
 ?>
 
