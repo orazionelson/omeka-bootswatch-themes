@@ -5,27 +5,24 @@
       if (isset($title)) { $titleParts[] = strip_formatting($title); }
       $titleParts[] = option('site_title');
   ?>
-  <?php if ((get_theme_option('display_header') !== '0')): ?>
-  <header id="banner" class="<?php echo get_theme_option('header_flow'); ?> page-header" style="background-size:cover;background-image:url('<?php
-  if ((get_theme_option('Header Background Image') === null)){
-    echo img('defaulthbg.jpg');
-  }
-  else echo bs_header_bg();
-  ?>');">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-9 mx-auto">
-        <?php $title = option('site_title');
-        echo "<h1 class='mb-5 text-center text-primary'> $title </h1>"; ?>
-      </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <button class="btn btn-block btn-md btn-Secondary"><a href="<?php echo html_escape(url('items')); ?>"><h4> Explore Items </h4></a></button>
-        <button class="btn btn-block btn-md btn-Secondary"><a href="<?php echo html_escape(url('collections')); ?>"><h4>Explore Collections</h4></a></button>
+
+    <div class="card bg-dark text-white text-center">
+      <header id="banner" class="<?php echo get_theme_option('header_flow'); ?> page-header" style="background-size:cover;background-image:url('<?php
+      if ((get_theme_option('Header Background Image') === null)){
+        echo img('defaulthbg.jpg');
+      }
+      else echo bs_header_bg();
+      ?>');">
+      <div class="card-img-overlay ">
+        <h5 class="card-title"><?php $title = option('site_title');
+        echo "<h1 class='mb-5 text-center text-primary'> $title </h1>"; ?></h5>
+        <div class="bs-component" style="margin-bottom: 15px;">
+          <div class="btn-group btn-group-justified ">
+            <a href="<?php echo html_escape(url('items')); ?>" class="btn btn-secondary btn-lg"> Browse Items</a>
+            <a href="<?php echo html_escape(url('collections')); ?>" class="btn btn-secondary btn-lg">Browse Collections</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
   </header>
-  <?php endif; ?>
-
-  </body>
+</body>
