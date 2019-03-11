@@ -41,48 +41,44 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-    <nav class="navbar navbar-default navbar-fixed-top"><!-- navbar-fixed-top -->
-      <div class="container">
-        <div class="navbar-header">
-          <?php echo bs_link_logo_to_navbar(); ?>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <?php echo public_nav_main_bootstrap(); ?>
-          <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'navbar-form navbar-right'))); ?>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><?php echo bs_link_logo_to_navbar(); ?></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo html_escape(url('items')); ?>">Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo html_escape(url('collections')); ?>">Collections</a>
+          </li>
+        </ul>
       </div>
     </nav>
+
     <?php if ((get_theme_option('display_header') !== '0')): ?>
-    <header id="banner" class="<?php echo get_theme_option('header_flow'); ?> page-header" style="background-size:cover;background-image:url('<?php 
-		if ((get_theme_option('Header Background Image') === null)){
-			echo img('defaulthbg.jpg');
-		}			
-		else echo bs_header_bg(); 
-		?>');">
-		<div class="row header-row">
+    <header>
+    <div class="row header-row">
 			<?php if ((get_theme_option('header_logo_image') !== null)): ?>
 			<div class="col-md-2 col-md-offset-1" id="header-logo-holder">
 				 <?php echo bs_header_logo(); ?>
 			</div>
 			<?php endif; ?>
 			<div class="col-md-8" id="header-claim-holder">
-				<div class="well">
+				<div class="card">
 				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
 					<h1><?php echo get_theme_option('header_image_heading'); ?></h1>
 				<?php endif; ?>
 				<?php if ((get_theme_option('header_image_text') !== '')): ?>
 					<p><?php echo get_theme_option('header_image_text'); ?></p>
 				<?php endif; ?>
-				</div>			
+				</div>
 			</div>
 		</div>
-    </header>  
-    <?php endif; ?>  
+    </header>
+    <?php endif; ?>
     <main id="content">
       <div class="container">
           <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
