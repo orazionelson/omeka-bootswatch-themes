@@ -57,28 +57,6 @@
         </ul>
       </div>
     </nav>
-
-    
-    <header>
-    <div class="row header-row">
-			<?php if ((get_theme_option('header_logo_image') !== null)): ?>
-			<div class="col-md-2 col-md-offset-1" id="header-logo-holder">
-				 <?php echo bs_header_logo(); ?>
-			</div>
-			<?php endif; ?>
-			<div class="col-md-8" id="header-claim-holder">
-				<div class="card">
-				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
-					<h1><?php echo get_theme_option('header_image_heading'); ?></h1>
-				<?php endif; ?>
-				<?php if ((get_theme_option('header_image_text') !== '')): ?>
-					<p><?php echo get_theme_option('header_image_text'); ?></p>
-				<?php endif; ?>
-				</div>
-			</div>
-		</div>
-    </header>
-    <?php endif; ?>
     <main id="content">
       <div class="container">
           <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
