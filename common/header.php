@@ -58,9 +58,7 @@
       </div>
     </nav>
     <main id="content">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid">
-            <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
-        </div>
-      </div>
+       <div class="container-fluid">
+          <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
+       </div>
     </main>
