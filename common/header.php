@@ -58,7 +58,7 @@
       </div>
     </nav>
 
-    <?php if ((get_theme_option('display_header') !== '0')): ?>
+    
     <header>
     <div class="row header-row">
 			<?php if ((get_theme_option('header_logo_image') !== null)): ?>
