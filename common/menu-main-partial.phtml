@@ -20,7 +20,7 @@
                     <?php foreach($page->getPages() as $child): ?>
                         <?php if( ! $child->isVisible() || !$this->navigation()->accept($child)) continue; ?>
                         <li <?php if($child->isActive()) echo 'class="active"'?>>
-                            <a href="<?php echo $child->getHref() ?>">
+                            <a class="dropdown-item" href="<?php echo $child->getHref() ?>">
                                 <?php echo $this->translate($child->getLabel()) ?>
                             </a>
                         </li>
