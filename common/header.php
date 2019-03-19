@@ -28,9 +28,11 @@
         echo head_css();
     ?>
 
-    <!-- Need more JavaScript files? Include them here -->
+    <!-- Need more JavaScript files? Include them here 
+         added additional bootswatch custom.js -->
     <?php
         queue_js_file('lib/bootstrap.min');
+        queue_js_file('lib/bw_custom');
         queue_js_file('globals');
         echo head_js();
     ?>

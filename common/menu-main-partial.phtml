@@ -1,17 +1,17 @@
-<ul class="nav navbar-nav">
+<ul class="navbar-nav mr-auto">
     <?php $count = 0 ?>
     <?php foreach ($this->container as $page): ?>
         <?php if( ! $page->isVisible() || !$this->navigation()->accept($page)) continue; ?>
         <?php $hasChildren = $page->hasPages() ?>
         <?php if( ! $hasChildren): ?>
-            <li <?php if($page->isActive()) echo 'class="active"'?> role="presentation">
-                <a class="" href="<?php echo $page->getHref() ?>">
+            <li class="navbar-item" <?php if($page->isActive()) echo 'class="active"'?> role="presentation">
+                <a class="nav-link" href="<?php echo $page->getHref() ?>">
                     <?php echo $this->translate($page->getLabel()) ?>
                 </a>
             </li>
         <?php else: ?>
-            <li class="dropdown <?php if($page->isActive()) echo 'active'; ?>" role="presentation">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown <?php if($page->isActive()) echo 'active'; ?>" role="presentation">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <?php echo $this->translate($page->getLabel()) ?>
                     <span class="caret"></span>
                 </a>
