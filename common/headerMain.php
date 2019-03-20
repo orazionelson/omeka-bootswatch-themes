@@ -50,6 +50,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <?php echo public_nav_main_bootstrap(); ?>
-            <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'navbar-form navbar-right'))); ?>
+            <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'form-inline my-2 my-lg-0'))); ?>
         </div>
       </nav>
