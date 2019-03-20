@@ -342,6 +342,12 @@ body {
   padding: .5em;
 }
 
+/* replace with config setting */
+.page-header img {
+  height: 90vh;
+  object-fit: cover;
+}
+
 .page-header .jumbotron
 {
   opacity: 0.8;
