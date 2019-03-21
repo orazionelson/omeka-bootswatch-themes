@@ -5,9 +5,12 @@
 
     <h1><?php echo 'Browse all items'; ?></h1>
     
-    <?php
-    echo public_nav_pills_bootstrap(); 
-    ?>
+    <nav class="items-nav navigation secondary-nav">
+        <?php
+        echo public_nav_pills_bootstrap(); 
+        ?>
+    </nav>
+    
     <div class="clearfix"></div>
     <hr>    
 
