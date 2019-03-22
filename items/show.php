@@ -1,9 +1,9 @@
 <?php 
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
-
-    <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-
+    <div class="page-header">
+        <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+    </div>
     <div class="row">
         <div class="col-sm-6">
                 <?php $images = $item->Files; $imagesCount = 1; ?>

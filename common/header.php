@@ -54,7 +54,5 @@
         </div>
       </nav>
     <main id="content">
-       <div class="container-fluid">
+       <div class="container">
           <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
-       </div>
-    </main>
