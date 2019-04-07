@@ -11,7 +11,7 @@
                 <ul id="image-gallery" class="clearfix">
                     <?php foreach ($images as $image): ?>
                         <?php if ($imagesCount === 1): ?>
-                            <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
+                            <img class="card-img-top" src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
                         <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                 </ul>
