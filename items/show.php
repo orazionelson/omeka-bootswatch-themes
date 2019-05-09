@@ -6,6 +6,7 @@
             <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
         <?php else: ?>
             <h3><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h3>
+        <?php endif; ?>
     </div>
     <div class="row">
         <div class="col-sm-6">
