@@ -2,7 +2,10 @@
     $collectionTitle = strip_formatting(metadata('collection', array('Dublin Core', 'Title')));
     echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 ?>
-    <h1><?php echo $collectionTitle; ?></h1>
+    <?php if (strlen($collectionTitle) < 40): ?>
+        <h1><?php echo $collectionTitle; ?></h1>
+    <?php else: ?>
+        <h3><?php echo $collectionTitle; ?></h3>
     <?php echo all_element_texts('collection'); ?>
 
     <div id="collection-items">
