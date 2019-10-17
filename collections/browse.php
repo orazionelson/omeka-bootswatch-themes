@@ -9,6 +9,8 @@
         <?php if ($total_results > 0): ?>
             <div class="browse-collections-header hidden-xs">
                 <div class="row">
+                    <div class="col-sm-2">
+                    </div>
                     <div class="col-sm-3 col-sm-offset-2">
                         <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
                     </div>
