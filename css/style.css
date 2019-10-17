@@ -368,11 +368,12 @@ div#header-claim-holder .held, div#header-claim-holder p
 
 }
 
-.sort-links-list {
+.sort-links-list,#sort-links-list {
   list-style: none;
   display: inline-block;
+  padding-left: 0px;
 }
 
-.sort-links-list li {
+.sort-links-list li,#sort-links-list li {
   display: inline-block;
 }
