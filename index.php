@@ -14,6 +14,10 @@
 		$main_file ='common/rightmain.phtml';
 		$file = 'headerMain';
 	}
+	elseif ($layout == 'half-page') {
+		$main_file ='common/half-pagemain.phtml';
+		$file = 'headerMain';
+	}
 	else
 		$main_file ='common/testermain.phtml';
 ?>
