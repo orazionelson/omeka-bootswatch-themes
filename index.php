@@ -18,6 +18,10 @@
 		$main_file ='common/half-pagemain.phtml';
 		$file = 'headerMain';
 	}
+	elseif ($layout == 'cover') {
+		$main_file ='common/covermain.phtml';
+		$file = 'headerMain';
+	}
 	else
 		$main_file ='common/testermain.phtml';
 ?>
