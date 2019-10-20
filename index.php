@@ -10,6 +10,10 @@
 		$main_file ='common/testermain.phtml';
 		$file = 'headerMain';
 	}
+	elseif ($layout == 'right') {
+		$main_file ='common/rightmain.phtml';
+		$file = 'headerMain';
+	}
 	else
 		$main_file ='common/testermain.phtml';
 ?>
