@@ -97,7 +97,6 @@
 				<div class="card-title"><span class="lead"><?php echo __('Featured Collection'); ?></span></div>
 				<?php echo random_featured_collection(); ?></div>
 			</div>
-			</div>
         <?php endif; ?>
         <?php if ((get_theme_option('Display Featured Exhibit') !== '0') && plugin_is_active('ExhibitBuilder') && function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
 					<div class="card">
@@ -108,7 +107,6 @@
         <?php endif; ?>
     </div>
 </div>
-
 
 <?php elseif ($sidebar_pos=='none'): ?>
 	<div class="row">
@@ -127,13 +125,45 @@
 		    endif;
 		    if ($recentItems):
 		    ?>
-		    <div id="recent-items" class="card">
-						<div class="card-body">
+		    <div class="card-deck">
+		    	<?php if (get_theme_option('Display Featured Item') !== '0'): ?>
+		    		
+		    			<div class="card">
+		    	<div class="card-header"><span class="h3"><?php echo __('Featured Item'); ?></span></div>
+				<!--<div class="col-md-5 card-body">
+					<div class="card-title"></div>
+					<div class="card-text"><?php //echo random_featured_items(1); ?></div>-->
+				<?php echo random_featured_items(1); ?>
+				</div>           
+		        <!--random_featured_items is linked to items/single.php-->
+		    
+		    <?php endif; ?>	
+		    	
+		        <?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
+		        	
+		        		<div class="card">
+		        <div class="card-header"><span class="h3"><?php echo __('Featured Collection'); ?></span></div>
+		     
+					<!--<div class="col-md-5 card-body">
+						<div class="card-title"><span class="lead"><?php //echo __('Featured Collection'); ?></span></div>
+						<div class="card-text"><?php //echo random_featured_collection(); ?></div>-->
+					<?php echo random_featured_collection(); ?>
+					</div>
+					
+					<!--random_featured_collection is linked to collections/single.php-->
+		        <?php endif; ?>
+		    
+		</div>
+		</div>
+		    <div id="recent-items" class="card" style="border:none;">
+				<div class="card-body">
 		        <h2 class="card-title"><?php echo __('Recently Added Items'); ?></h2>
-		        <?php echo recent_items_bootstrap($recentItems,get_theme_option('display_recent_items_as')); ?>
-		        <div class="col-md-12"><p class="view-items-link"><a href="<?php echo html_escape(url('items')); ?>"><?php echo __('View All Items'); ?></a></p></div>
-						</div>
+		        <div class="row">
+			        <?php echo recent_items_bootstrap($recentItems,get_theme_option('display_recent_items_as')); ?>
+			        <div class="col-md-12"><p class="view-items-link"><a href="<?php echo html_escape(url('items')); ?>"><?php echo __('View All Items'); ?></a></p></div>
+		    	</div>
 				</div>
+			</div>
 		    <?php endif; ?>
 
 		    <?php fire_plugin_hook('public_home', array('view' => $this)); ?>

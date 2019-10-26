@@ -1,9 +1,9 @@
-<div class="item record">
+
     <?php
     $title = metadata($item, array('Dublin Core', 'Title'));
     $description = metadata($item, array('Dublin Core', 'Description'), array('snippet' => 150));
     ?>
-    <h3><?php echo link_to($item, 'show', strip_formatting($title)); ?></h3>
+    <div class="card-img-top">
     <?php if (metadata($item, 'has files')) {
         echo link_to_item(
             item_image('square_thumbnail', array('class' => 'img-thumbnail'), 0, $item), 
@@ -11,7 +11,11 @@
         );
     }
     ?>
-    <?php if ($description): ?>
-        <p class="item-description"><?php echo $description; ?></p>
-    <?php endif; ?>
-</div>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title"><?php echo link_to($item, 'show', strip_formatting($title)); ?></h3>
+        <?php if ($description): ?>
+            <p class="card-text"><?php echo $description; ?></p>
+        <?php endif; ?>
+    </div>
+
