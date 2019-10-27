@@ -17,7 +17,10 @@
       <div class="card-img-overlay d-flex">
         <div class="mx-auto align-top p-5 mt-5">
   				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
-  					<h1 class="card-title"><?php echo get_theme_option('header_image_heading'); ?></h1>
+  					<h1 class="card-title" style="<?php $color =  get_theme_option('header_image_heading_color');
+            if($color !="default"):
+              echo "color:", $color;
+            endif; ?>"><?php echo get_theme_option('header_image_heading'); ?></h1>
   				<?php endif; ?>
   				<?php if ((get_theme_option('header_image_text') !== '')): ?>
   					<p class="card-text"><?php echo get_theme_option('header_image_text'); ?></p>

@@ -9,7 +9,10 @@
     <!-- Card with image overlay for header image, heading and text -->
       <div class="my-auto mx-auto text-center col-lg-7 p-5">
           <?php if ((get_theme_option('header_image_heading') !== '')): ?>
-            <h1 class="display-3"><?php echo get_theme_option('header_image_heading'); ?></h1>
+            <h1 class="display-3" style="<?php $color =  get_theme_option('header_image_heading_color');
+            if($color !="default"):
+              echo "color:", $color;
+            endif; ?>"><?php echo get_theme_option('header_image_heading'); ?></h1>
           <?php endif; ?>
           <?php if ((get_theme_option('header_image_text') !== '')): ?>
             <p class="card-text"><?php echo get_theme_option('header_image_text'); ?></p>
