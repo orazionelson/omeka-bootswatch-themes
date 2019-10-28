@@ -11,19 +11,22 @@
 //added php if statements here-- didnt seem to make a change
                 <div class="collapse" id="spage_<?php echo $count ?>">
                     <?php foreach($page->getPages() as $child): ?>
-                        <?php if( ! $child->isVisible() || !$this->navigation()->accept($child)) continue; ?>
-                            <?php if ((get_theme_option('sidebar_position') == 'Right'): ?>
+                        <?php if( ! $child->isVisible() || !$this->navigation()->accept($child)): continue; ?>
+                      <?php endif; ?>
+                            <?php if (get_theme_option('sidebar_position') == 'Right'): ?>
                               <a style="padding-left:30px; font-size:90%" class="list-group-item <?php if($page->isActive()) echo 'active'; ?>" href="<?php echo $child->getHref() ?>">
                                   <?php echo $this->translate($child->getLabel()) ?>
                                 </a>
-                            <?php if ((get_theme_option('sidebar_position') == 'Left'): ?>
+                                <?php endif; ?>
+                            <?php if (get_theme_option('sidebar_position') == 'Left'): ?>
                               <a style="padding-left:130px; font-size:90%" class="list-group-item <?php if($page->isActive()) echo 'active'; ?>" href="<?php echo $child->getHref() ?>">
                                   <?php echo $this->translate($child->getLabel()) ?>
                                 </a>
                             <?php else: ?>
                               <a style="padding-left:0px; font-size:0%" class="list-group-item <?php if($page->isActive()) echo 'active'; ?>" href="<?php echo $child->getHref() ?>">
                                 </a>
-                    <?php endforeach ?>
+                                <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
               
         <?php endif; ?>		
