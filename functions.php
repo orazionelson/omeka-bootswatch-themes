@@ -1,5 +1,19 @@
 <?php
 
+function random_featured_exhibit()
+{
+    $html = '';
+    $featuredExhibit = exhibit_builder_random_featured_exhibit();
+    if ($featuredExhibit) {
+        $html .= get_view()->partial('exhibits/single.php', array('exhibit' => $featuredExhibit));
+    } else {
+        $html .= '<p>' . __('You have no featured exhibits.') . '</p>';
+    }
+    $html .= '</div>';
+    $html = apply_filters('exhibit_builder_display_random_featured_exhibit', $html);
+    return $html;
+}
+
 function public_nav_main_bootstrap() {
     $partial = array('common/menu-main-partial.phtml', 'default');
     $nav = public_nav_main();  // this looks like $this->navigation()->menu() from Zend
