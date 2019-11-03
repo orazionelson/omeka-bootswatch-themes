@@ -81,7 +81,7 @@ endif;
 			<main id="content">
 				<div class="container">
 					<?php if (get_theme_option('Display Featured Item') !== '0'): ?>
-						<div class="card mb-4">
+						<div class="card mb-4 mt-4">
 							<div class="card-header"><span class="h3"><?php echo __('Featured Item'); ?></span></div>
 							<?php echo random_featured_items(1); ?>
 						</div>           
@@ -98,7 +98,7 @@ endif;
 
 						<!--random_featured_collection is linked to collections/single.php-->
 					<?php endif; ?>
-					
+
 					<?php if (get_theme_option('Display Featured Exhibit') !== '0'): ?>
 
 						<div class="card mb-4">
