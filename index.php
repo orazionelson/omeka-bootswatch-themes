@@ -31,16 +31,21 @@ $sidebar_pos=get_theme_option('sidebar_position');
 $main_add="";
 $sidebar_add="";
 if ($sidebar_pos=='left'){
-	$main_add=" col-md-push-4";
-	$sidebar_add=" col-md-pull-8";
+	$main_add="col-md-10 order-2";
+	$sidebar_add="order-1";
+	$style_sidebar="pr-0 pl-3";
+	$style_main="pl-0";
 }
 if ($sidebar_pos=='right'){
-	$main_add=" col-md-pull-4";
-	$sidebar_add=" col-md-push-8";
+	$main_add="col-md-10 order-2";
+	$sidebar_add="order-3";
+	$style_sidebar="pl-0 pr-3";
+	$style_main="pr-0";
 }
 if ($sidebar_pos=='none'){
-	$main_add="";
+	$main_add="col-md-12";
 	$sidebar_add="";
+	$style_main="";
 }
 ?>
 <?php 
@@ -59,8 +64,13 @@ endif;
 ?>
 
 <div class="row">
-	<?php if ($sidebar_pos=='left'): ?>
-		<div class="col-md-2<?php echo $sidebar_add;?>">
+	<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
+			<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
+			<?php else: ?>
+				<?php echo $this->partial($main_file);?>
+			<?php endif; ?>
+	<?php if ($sidebar_pos=='left' || $sidebar_pos=='right'): ?>
+		<div class="col-md-2 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
 			<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
 				<?php echo public_nav_sidebar_bootstrap(); ?>
 			<?php endif; ?>
@@ -72,12 +82,8 @@ endif;
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
-	<div class="col-md-<?php echo $size;?><?php echo $main_add;?>">
-		<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
-			<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
-			<?php else: ?>
-				<?php echo $this->partial($main_file);?>
-			<?php endif; ?>
+	<div class="<?php echo $main_add;?> <?php echo $style_main;?>">
+		
 			<main id="content">
 				<div class="container">
 					<?php if (get_theme_option('Display Featured Item') !== '0'): ?>
@@ -128,19 +134,7 @@ endif;
 			</div>
 		</main>
 	</div>
-	<?php if ($sidebar_pos=='right'):?>
-		<div class="col-md-2<?php echo $sidebar_add;?>">
-			<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
-				<?php echo public_nav_sidebar_bootstrap(); ?>
-			<?php endif; ?>
-			<?php if (get_theme_option('display_sidebar_advanced_search') !== '0'): ?>
-				<div id="search-container">
-					<h2>Search</h2>
-					<?php echo search_form(array('show_advanced' => true)); ?>
-				</div>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
+	
 </div>
 
 <?php echo foot(); ?>
