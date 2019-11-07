@@ -103,10 +103,6 @@ endif;
 
 						<div class="card mb-4">
 							<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
-
-					<!--<div class="col-md-5 card-body">
-						<div class="card-title"><span class="lead"><?php //echo __('Featured Collection'); ?></span></div>
-						<div class="card-text"><?php //echo random_featured_collection(); ?></div>-->
 						<?php echo random_featured_exhibit(); ?>
 					</div>
 					
