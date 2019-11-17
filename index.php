@@ -64,79 +64,79 @@
 	?>
 
 	<div class="row">
-					<?php echo $this->partial($main_file);?>
-					<div class="container-fluid m-5">
-						<div class="row">
-		<?php if ($sidebar_pos=='left' || $sidebar_pos=='right'): ?>
-			<div class="col-md-2 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
-				<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
-					<?php echo public_nav_sidebar_bootstrap(); ?>
-				<?php endif; ?>
-				<?php if (get_theme_option('display_sidebar_advanced_search') !== '0'): ?>
-					<div id="search-container">
-						<h2>Search</h2>
-						<?php echo search_form(array('show_advanced' => true)); ?>
+		<?php echo $this->partial($main_file);?>
+		<div class="container-fluid m-5">
+			<div class="row">
+				<?php if ($sidebar_pos=='left' || $sidebar_pos=='right'): ?>
+					<div class="col-md-2 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
+						<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
+							<?php echo public_nav_sidebar_bootstrap(); ?>
+						<?php endif; ?>
+						<?php if (get_theme_option('display_sidebar_advanced_search') !== '0'): ?>
+							<div id="search-container">
+								<h2>Search</h2>
+								<?php echo search_form(array('show_advanced' => true)); ?>
+							</div>
+						<?php endif; ?>
 					</div>
 				<?php endif; ?>
-			</div>
-		<?php endif; ?>
-		<div class="<?php echo $main_add;?> <?php echo $style_main;?>">
-			
-				<main id="content">
-					<div class="container">
-						<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
-				<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
-				<?php endif; ?>
-						<?php if (get_theme_option('Display Featured Item') !== '0'): ?>
-							<div class="card mb-4 mt-4">
-								<div class="card-header"><span class="h3"><?php echo __('Featured Item'); ?></span></div>
-								<?php echo random_featured_items(1); ?>
-							</div>           
-							<!--random_featured_items is linked to items/single.php-->
+				<div class="<?php echo $main_add;?> <?php echo $style_main;?>">
+					
+					<main id="content">
+						<div class="container">
+							<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
+								<div id="homepage-text"><p><?php echo $homepageText; ?></p></div>
+							<?php endif; ?>
+							<?php if (get_theme_option('Display Featured Item') !== '0'): ?>
+								<div class="card mb-4 mt-4">
+									<div class="card-header"><span class="h3"><?php echo __('Featured Item'); ?></span></div>
+									<?php echo random_featured_items(1); ?>
+								</div>           
+								<!--random_featured_items is linked to items/single.php-->
 
-						<?php endif; ?>	
+							<?php endif; ?>	
 
-						<?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
+							<?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
 
-							<div class="card mb-4">
-								<div class="card-header"><span class="h3"><?php echo __('Featured Collection'); ?></span></div>
-								<?php echo random_featured_collection(); ?>
-							</div>
+								<div class="card mb-4">
+									<div class="card-header"><span class="h3"><?php echo __('Featured Collection'); ?></span></div>
+									<?php echo random_featured_collection(); ?>
+								</div>
 
-							<!--random_featured_collection is linked to collections/single.php-->
-						<?php endif; ?>
+								<!--random_featured_collection is linked to collections/single.php-->
+							<?php endif; ?>
 
-						<?php if (get_theme_option('Display Featured Exhibit') !== '0'): ?>
+							<?php if (get_theme_option('Display Featured Exhibit') !== '0'): ?>
 
-							<div class="card mb-4" style="width:50rem;">
-								<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
-							<?php echo random_featured_exhibit(); ?>
-						</div>
-						
-						<!--random_featured_collection is linked to collections/single.php-->
-					<?php endif; ?>
-					<?php if ($recentItems):?>
-						<div id="recent-items" class="card" style="border:none;">
-							<div class="card-body">
-								<h2 class="card-title"><?php echo __('Recently Added Items'); ?></h2>
-								<?php if (get_theme_option('display_recent_items_as')=='grid'): ?>
-									<div class="row">
-									<?php endif; ?>
-									<?php echo recent_items_bootstrap($recentItems,get_theme_option('display_recent_items_as')); ?>
-									<div class="col-md-12"><p class="view-items-link"><a href="<?php echo html_escape(url('items')); ?>"><?php echo __('View All Items'); ?></a></p></div>
-									<?php if (get_theme_option('display_recent_items_as')=='grid'): ?>
+								<div class="card mb-4" style="width:50rem;">
+									<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
+									<?php echo random_featured_exhibit(); ?>
+								</div>
+								
+								<!--random_featured_collection is linked to collections/single.php-->
+							<?php endif; ?>
+							<?php if ($recentItems):?>
+								<div id="recent-items" class="card" style="border:none;">
+									<div class="card-body">
+										<h2 class="card-title"><?php echo __('Recently Added Items'); ?></h2>
+										<?php if (get_theme_option('display_recent_items_as')=='grid'): ?>
+											<div class="row">
+											<?php endif; ?>
+											<?php echo recent_items_bootstrap($recentItems,get_theme_option('display_recent_items_as')); ?>
+											<div class="col-md-12"><p class="view-items-link"><a href="<?php echo html_escape(url('items')); ?>"><?php echo __('View All Items'); ?></a></p></div>
+											<?php if (get_theme_option('display_recent_items_as')=='grid'): ?>
+											</div>
+										<?php endif; ?>
 									</div>
-								<?php endif; ?>
-							</div>
-						</div>	    
-					<?php endif; ?>
+								</div>	    
+							<?php endif; ?>
 
-					<?php fire_plugin_hook('public_home', array('view' => $this)); ?>
+							<?php fire_plugin_hook('public_home', array('view' => $this)); ?>
+						</div>
+					</main>
 				</div>
-			</main>
+			</div>
 		</div>
-	</div>
-	</div>
 		
 	</div>
 
