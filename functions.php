@@ -51,6 +51,19 @@ function recent_items_bootstrap($recentItems,$type){
     }
     return $html;
 		}
+        elseif($type=='sidebar'){
+    $items = get_recent_items($recentItems);
+    if ($items) {
+        $html = '';
+        foreach ($items as $item) {
+            $html .= get_view()->partial('items/sidebar.php', array('item' => $item));
+            release_object($item);
+        }
+    } else {
+        $html = '<p>' . __('No recent items available.') . '</p>';
+    }
+    return $html;
+        }
 }
 
 function bs_link_logo_to_navbar($text = null, $props = array())

@@ -78,10 +78,17 @@
 								<?php echo search_form(array('show_advanced' => true)); ?>
 							</div>
 						<?php endif; ?>
+								<?php if ($recentItems && get_theme_option('display_recent_items_as')=='sidebar'):?>
+											
+											<?php echo recent_items_bootstrap($recentItems,get_theme_option('display_recent_items_as')); ?>
+											<div class="col-md-12"><p class="view-items-link"><a href="<?php echo html_escape(url('items')); ?>"><?php echo __('View All Items'); ?></a></p></div>
+
+									<?php endif; ?>
+											
 					</div>
 				<?php endif; ?>
 				<div class="<?php echo $main_add;?> <?php echo $style_main;?>">
-					
+
 					<main id="content">
 						<div class="container">
 							<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
@@ -112,10 +119,11 @@
 									<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
 									<?php echo random_featured_exhibit(); ?>
 								</div>
-								
+
 								<!--random_featured_collection is linked to collections/single.php-->
 							<?php endif; ?>
-							<?php if ($recentItems):?>
+							<!-- <?php //if ($recentItems):?> -->
+							<?php if ($recentItems && get_theme_option('display_recent_items_as')!='sidebar'):?>
 								<div id="recent-items" class="card" style="border:none;">
 									<div class="card-body">
 										<h2 class="card-title"><?php echo __('Recently Added Items'); ?></h2>
