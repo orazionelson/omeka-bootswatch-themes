@@ -65,6 +65,8 @@
 
 	<div class="row">
 					<?php echo $this->partial($main_file);?>
+					<div class="container-fluid m-5">
+						<div class="row">
 		<?php if ($sidebar_pos=='left' || $sidebar_pos=='right'): ?>
 			<div class="col-md-2 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
 				<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
@@ -106,7 +108,7 @@
 
 						<?php if (get_theme_option('Display Featured Exhibit') !== '0'): ?>
 
-							<div class="card mb-4">
+							<div class="card mb-4" style="width:50rem;">
 								<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
 							<?php echo random_featured_exhibit(); ?>
 						</div>
@@ -133,6 +135,8 @@
 				</div>
 			</main>
 		</div>
+	</div>
+	</div>
 		
 	</div>
 
