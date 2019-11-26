@@ -63,7 +63,7 @@
 	endif;
 	?>
 
-	<div class="row">
+	<div class="row m-0">
 		<?php echo $this->partial($main_file);?>
 		<div class="container-fluid m-5">
 			<div class="row">
