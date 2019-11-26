@@ -62,9 +62,8 @@
 		$recentItems = (int) $recentItems;
 	endif;
 	?>
-    <div class="container-fluid">
-	<div class="row m-0">
-		
+
+	<div class="row">
 		<?php echo $this->partial($main_file);?>
 		<div class="container-fluid m-5">
 			<div class="row">
@@ -149,7 +148,6 @@
 		</div>
 		
 	</div>
-</div>
 
 	<?php echo foot(); ?>
 
