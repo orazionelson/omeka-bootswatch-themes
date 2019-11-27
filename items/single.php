@@ -25,7 +25,7 @@ $description = metadata($item, array('Dublin Core', 'Description'), array('snipp
     </div>
 </div> -->
 
-  <div class="card-img-top">
+  <div class="card-img-top featured">
             <?php if (metadata($item, 'has files')) {
                 echo link_to_item(
                     item_image('fullsize', array('class' => 'fullsize'), 0, $item), 

@@ -116,7 +116,7 @@
 
 							<?php if (get_theme_option('Display Featured Exhibit') !== '0'): ?>
 
-								<div class="card mb-4" style="width:50rem;">
+								<div class="card mb-4">
 									<div class="card-header"><span class="h3"><?php echo __('Featured Exhibit'); ?></span></div>
 									<?php echo random_featured_exhibit(); ?>
 								</div>

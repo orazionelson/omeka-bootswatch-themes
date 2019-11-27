@@ -414,3 +414,7 @@ div#header-claim-holder .held, div#header-claim-holder p
 
 .vvvvvvvv-popular a {
   font-size: 360%; }
+
+div.featured a img {
+    width:100%;
+}

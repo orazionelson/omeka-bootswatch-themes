@@ -20,7 +20,7 @@ $description = metadata($collection, array('Dublin Core', 'Description'), array(
         </div>
     </div>
 </div> -->
-<div class="card-img-top">
+<div class="card-img-top featured">
             <?php if ($collectionImage = record_image($collection, 'fullsize')): ?>
                 <?php echo link_to($this->collection, 'show', $collectionImage, array('class' => 'fullsize')); ?>
             <?php endif; ?>      
@@ -29,6 +29,6 @@ $description = metadata($collection, array('Dublin Core', 'Description'), array(
     <h3 class="card-title"><?php echo link_to($this->collection, 'show', strip_formatting($title)); ?></h3>
     <?php if ($description): ?>
                 <p class="card-text"><?php echo $description; ?></p>
-            <?php endif; ?>ss
+            <?php endif; ?>
   </div>
 
