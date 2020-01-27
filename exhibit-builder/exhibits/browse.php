@@ -44,8 +44,12 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
     <?php $exhibitCount++; ?>
     <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
         <div class="col-sm-3 col-md-3">
-        <?php if ($exhibitImage = record_image($exhibit)): ?>
-            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
+        <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
+            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); 
+            else:
+                $exhibitImage = '<img alt="default" src="/omeka-2.7/themes/omeka-bootswatch-themes/images/defaultImage@2x.jpg" class="img-thumbnail img-responsive">';
+                echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage); 
+                ?>
         <?php endif; ?>
     </div>
         <div class="col-sm-2 col-md-2">
