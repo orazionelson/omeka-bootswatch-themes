@@ -6,16 +6,10 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php if (count($exhibits) > 0): ?>
 
 <nav class="items-nav navigation secondary-nav">
-    <?php echo nav(array(
-        array(
-            'label' => __('Browse All'),
-            'uri' => url('exhibits')
-        ),
-        array(
-            'label' => __('Browse by Tag'),
-            'uri' => url('exhibits/tags')
-        )
-    )); ?>
+    
+    <?php
+        echo public_nav_pills_bootstrap(); 
+        ?>
 </nav>
 <div class="clearfix"></div>
     <hr>

@@ -418,3 +418,7 @@ div#header-claim-holder .held, div#header-claim-holder p
 div.featured a img {
     width:100%;
 }
+
+#sticky-footer {
+  flex-shrink: none;
+}
