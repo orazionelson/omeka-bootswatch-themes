@@ -34,6 +34,22 @@ function public_nav_pills_bootstrap() {
     return $nav->render();
 }
 
+function public_nav_pills_bootstrap_exhibit() {
+    $partial = array('common/menu-item-pills-partial.phtml', 'default');
+    $nav = public_nav_items(array(
+        array(
+            'label' => __('Browse All'),
+            'uri' => url('exhibits')
+        ),
+        array(
+            'label' => __('Browse by Tag'),
+            'uri' => url('exhibits/tags')
+        )
+    ));  // this looks like $this->navigation()->menu() from Zend
+    $nav->setPartial($partial);
+    return $nav->render();
+}
+
 function recent_items_bootstrap($recentItems,$type){
 	if($type=='list'){
 		return recent_items($recentItems);
