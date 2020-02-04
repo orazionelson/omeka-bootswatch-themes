@@ -16,12 +16,21 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php echo pagination_links(); ?>
 
 <div class="browse-exhibits">
+    <?php
+            $sortLinks[__('Title')] = 'Dublin Core,Title';
+            $sortLinks[__('Creator')] = 'Dublin Core,Creator';
+            ?>
     <div class="browse-items-header hidden-xs">
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
                     </div>
                     <div class="col-sm-2 col-md-2">
-                        Title
+                        <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array(
+                            'link_tag' => 'li',
+                            'list_tag' => 'ul',
+                            'link_attr' => array(),
+                            'list_attr' => array( 'class' => 'sort-links-list' )
+                        )); ?>
                     </div>
                     <div class="col-sm-4 col-md-4">
                         Description
