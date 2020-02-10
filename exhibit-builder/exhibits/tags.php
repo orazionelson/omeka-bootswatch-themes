@@ -9,6 +9,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits tags'));
         echo public_nav_pills_bootstrap_exhibit(); 
         ?>
     </nav>
+    <hr>
 
 <?php echo tag_cloud($tags, 'exhibits/browse'); ?>
 
