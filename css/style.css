@@ -430,3 +430,7 @@ div.featured a img {
 #content {
     min-height: 100%;
 }
+
+.container h1 {
+    padding-top: 2%;
+}
