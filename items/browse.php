@@ -20,7 +20,7 @@
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Creator')] = 'Dublin Core,Creator';
             ?>
-            <div class="browse-items-header hidden-xs">
+            <div class="browse-items-header hidden-xs container">
                 <div class="row">
                     <div class="col-sm-3 col-md-2">
                     </div>
@@ -45,7 +45,7 @@
             </div>
         
             <?php foreach (loop('items') as $item): ?>
-            <div class="item">
+            <div class="item container">
                 <div class="row">
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>

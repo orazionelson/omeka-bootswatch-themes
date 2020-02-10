@@ -20,7 +20,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Creator')] = 'Dublin Core,Creator';
             ?>
-    <div class="browse-items-header hidden-xs">
+    <div class="browse-items-header hidden-xs container">
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
                     </div>
@@ -40,7 +40,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
                     </div>
                 </div>
             </div>
-    <div class="exhibit">
+    <div class="exhibit container">
 <?php $exhibitCount = 0; ?>
 <?php foreach (loop('exhibit') as $exhibit): ?>
     <?php $exhibitCount++; ?>
