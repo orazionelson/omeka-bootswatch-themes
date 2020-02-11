@@ -49,8 +49,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
         <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); 
             else:
-                $exhibitImage = link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class="img-thumbnail img-responsive">');
-                // $exhibitImage = '<img alt="default" src="/omeka-2.7/themes/omeka-bootswatch-themes/images/defaultImage@2x.jpg" class="img-thumbnail img-responsive">';
+                $exhibitImage = '<img alt="default" src="'.img('defaultImage@2x.jpg').'" class="img-thumbnail img-responsive">';
                 echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage); 
                 ?>
         <?php endif; ?>
