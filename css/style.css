@@ -434,3 +434,24 @@ div.featured a img {
 .container h1 {
     padding-top: 2%;
 }
+
+/* !---------- Pagination ---------- */
+  .pagination {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 0 24px;
+    clear: left; }
+    .pagination li {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: top; 
+      font-size: large;}
+    .pagination input[type=text] {
+      width: 50px;
+      text-align: right;
+      margin-right: 10px;
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+      border: 1px solid;
+      box-shadow: rgba(0, 0, 0, 0.15) 0 0 10px;
+      margin-bottom: 24px; }
