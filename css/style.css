@@ -431,7 +431,7 @@ div.featured a img {
     min-height: 100%;
 }
 
-.container h1 {
+main .container>h1 {
     padding-top: 2%;
 }
 
@@ -455,3 +455,4 @@ div.featured a img {
       border: 1px solid;
       box-shadow: rgba(0, 0, 0, 0.15) 0 0 10px;
       margin-bottom: 24px; }
+/* !-------------------- */
