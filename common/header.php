@@ -28,9 +28,11 @@
         echo head_css();
     ?>
 
-    <!-- Need more JavaScript files? Include them here -->
+    <!-- Need more JavaScript files? Include them here 
+         added additional bootswatch custom.js -->
     <?php
         queue_js_file('lib/bootstrap.min');
+        queue_js_file('lib/bw_custom');
         queue_js_file('globals');
         echo head_js();
     ?>
@@ -41,48 +43,16 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-    <nav class="navbar navbar-default navbar-fixed-top"><!-- navbar-fixed-top -->
-      <div class="container">
-        <div class="navbar-header">
-          <?php echo bs_link_logo_to_navbar(); ?>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <?php echo bs_link_logo_to_navbar(); ?>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <?php echo public_nav_main_bootstrap(); ?>
+            <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'form-inline my-2 my-lg-0'))); ?>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <?php echo public_nav_main_bootstrap(); ?>
-          <?php echo search_form(array('show_advanced' => false, 'form_attributes'=>array('id'=>'navbar-search', 'class'=>'navbar-form navbar-right'))); ?>
-        </div>
-      </div>
-    </nav>
-    <?php if ((get_theme_option('display_header') !== '0')): ?>
-    <header id="banner" class="<?php echo get_theme_option('header_flow'); ?> page-header" style="background-size:cover;background-image:url('<?php 
-		if ((get_theme_option('Header Background Image') === null)){
-			echo img('defaulthbg.jpg');
-		}			
-		else echo bs_header_bg(); 
-		?>');">
-		<div class="row header-row">
-			<?php if ((get_theme_option('header_logo_image') !== null)): ?>
-			<div class="col-md-2 col-md-offset-1" id="header-logo-holder">
-				 <?php echo bs_header_logo(); ?>
-			</div>
-			<?php endif; ?>
-			<div class="col-md-8" id="header-claim-holder">
-				<div class="well">
-				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
-					<h1><?php echo get_theme_option('header_image_heading'); ?></h1>
-				<?php endif; ?>
-				<?php if ((get_theme_option('header_image_text') !== '')): ?>
-					<p><?php echo get_theme_option('header_image_text'); ?></p>
-				<?php endif; ?>
-				</div>			
-			</div>
-		</div>
-    </header>  
-    <?php endif; ?>  
+      </nav>
     <main id="content">
-      <div class="container">
+       <div class="container">
           <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

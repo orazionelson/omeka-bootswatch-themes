@@ -1,9 +1,16 @@
 <?php 
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
-
-    <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-
+<?php
+$itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
+?>
+    <div class="page-header">
+        <?php if (strlen($itemTitle) < 40): ?>
+            <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+        <?php else: ?>
+            <h3><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h3>
+        <?php endif; ?>
+    </div>
     <div class="row">
         <div class="col-sm-6">
                 <?php $images = $item->Files; $imagesCount = 1; ?>
@@ -11,7 +18,7 @@
                 <ul id="image-gallery" class="clearfix">
                     <?php foreach ($images as $image): ?>
                         <?php if ($imagesCount === 1): ?>
-                            <img src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
+                            <img class="card-img-top" src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
                         <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                 </ul>
