@@ -456,3 +456,27 @@ main .container>h1 {
       box-shadow: rgba(0, 0, 0, 0.15) 0 0 10px;
       margin-bottom: 24px; }
 /* !-------------------- */
+
+/******** exhibit pages sidebar ***/
+#exhibit-pages ul {
+  padding-left: 0px;
+}
+
+/************/
+
+/***Exhibit gallary small screen layout****/
+@media only screen and (max-width: 600px) {
+.layout-gallery .gallery .exhibit-item, 
+.layout-gallery .gallery .exhibit-item:nth-of-type(n) {
+    margin-right: 0;
+    width:110px;
+}
+
+.layout-gallery .gallery-showcase,
+.layout-gallery .gallery.with-showcase,
+.layout-gallery .gallery.left, 
+.layout-gallery .gallery.right {
+    width: 120px;
+}
+    }
+/***********/

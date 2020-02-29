@@ -7,8 +7,8 @@ echo head(array(
 $main_add="";
     $sidebar_add="";
     if ($sidebar_pos=='left'){
-        $main_add="col-md-10 order-2";
-        $sidebar_add="order-1";
+        $main_add="col-md-10 order-md-2 order-1";
+        $sidebar_add="order-md-1 order-2";
         $style_sidebar="pr-0 pl-3";
         $style_main="pl-2";
     }
