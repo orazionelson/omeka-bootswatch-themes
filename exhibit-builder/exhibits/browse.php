@@ -45,7 +45,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php foreach (loop('exhibit') as $exhibit): ?>
     <?php $exhibitCount++; ?>
     <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
-        <div class="col-sm-3 col-md-3">
+        <div class="order-md-1 order-2 col-md-3 px-2 px-md-2" style="width:130px">
         <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); 
             else:
@@ -54,16 +54,16 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
                 ?>
         <?php endif; ?>
     </div>
-        <div class="col-sm-2 col-md-2">
+        <div class="col-12 order-md-2 order-1 col-md-2  px-md-2">
         <h4><?php echo link_to_exhibit(); ?></h4>
     </div>
     
-    <div class="col-sm-4 col-md-4">
-        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
-        <div class="description"><?php echo $exhibitDescription; ?></div>
+    <div class="col-6 col-md-4 order-md-3 order-3 px-0 px-md-2">
+        <?php if ($exhibitDescription = metadata('exhibit', 'description', array('snippet'=>150))): ?>
+        <?php echo $exhibitDescription; ?>
         <?php endif; ?>
     </div>
-    <div class="col-sm-3 col-md-3">
+    <div class="col-10 col-md-3 order-md-4 order-4  px-md-3">
         <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
         <p class="tags"><?php echo $exhibitTags; ?></p>
         <?php endif; ?>
