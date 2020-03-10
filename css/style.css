@@ -459,7 +459,13 @@ main .container>h1 {
 
 /******** exhibit pages sidebar ***/
 #exhibit-pages ul {
+  list-style-type: none;
   padding-left: 0px;
+  margin-left:0.7em;
+}
+
+#exhibit-pages>h4 {
+  padding-top: 0.4em;
 }
 
 /************/
