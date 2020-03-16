@@ -27,8 +27,10 @@
   				<?php endif; ?>
     <!-- Buttons to add "call to action". Maybe replace with just one and form field? -->
           <div class="bs-component">
+            <?php if (get_theme_option('display_buttons')!== '0'): ?>
             <a href="<?php echo html_escape(url('items')); ?>" class="btn btn-secondary"> Browse Items</a>
             <a href="<?php echo html_escape(url('collections')); ?>" class="btn btn-secondary">Browse Collections</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
