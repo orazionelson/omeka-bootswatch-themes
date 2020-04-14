@@ -20,15 +20,17 @@
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Creator')] = 'Dublin Core,Creator';
             ?>
-            <div class="browse-items-header hidden-xs">
+            <div class="browse-items-header hidden-xs container">
                 <div class="row">
-                    <div class="col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-2">
+                    <div class="col-sm-3 col-md-2">
+                    </div>
+                    <div class="col-sm-3 col-md-2">
                         <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array(
-        'link_tag' => 'li',
-        'list_tag' => 'ul',
-        'link_attr' => array(),
-        'list_attr' => array( 'class' => 'sort-links-list' )
-    )); ?>
+                            'link_tag' => 'li',
+                            'list_tag' => 'ul',
+                            'link_attr' => array(),
+                            'list_attr' => array( 'class' => 'sort-links-list' )
+                        )); ?>
                     </div>
                     <div class="col-sm-3 col-md-2">
                         <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
@@ -43,7 +45,7 @@
             </div>
         
             <?php foreach (loop('items') as $item): ?>
-            <div class="item">
+            <div class="item container">
                 <div class="row">
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>

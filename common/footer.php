@@ -1,6 +1,6 @@
 	</div><!-- end content -->
 </main>
-<footer class="container-fluid bg-primary">
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50 container-fluid bg-primary">
 	<div class="row">
 		<div id="footer-content" class="col-sm-12 text-center">
 	        <?php if($footerText = get_theme_option('Footer Text')): ?>

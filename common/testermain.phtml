@@ -17,19 +17,23 @@
       <div class="card-img-overlay d-flex">
         <div class="my-auto mx-auto text-center">
   				<?php if ((get_theme_option('header_image_heading') !== '')): ?>
-  					<h1 class="card-title"><?php echo get_theme_option('header_image_heading'); ?></h1>
+  					<h1 class="card-title" style="<?php $color =  get_theme_option('header_image_heading_color');
+            if($color !="default"):
+              echo "color:", $color;
+            endif; ?>"><?php echo get_theme_option('header_image_heading'); ?></h1>
   				<?php endif; ?>
   				<?php if ((get_theme_option('header_image_text') !== '')): ?>
   					<p class="card-text"><?php echo get_theme_option('header_image_text'); ?></p>
   				<?php endif; ?>
     <!-- Buttons to add "call to action". Maybe replace with just one and form field? -->
           <div class="bs-component">
+            <?php if (get_theme_option('display_buttons')!== '0'): ?>
             <a href="<?php echo html_escape(url('items')); ?>" class="btn btn-secondary"> Browse Items</a>
             <a href="<?php echo html_escape(url('collections')); ?>" class="btn btn-secondary">Browse Collections</a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <main id="content">
-     <div class="container">
+  

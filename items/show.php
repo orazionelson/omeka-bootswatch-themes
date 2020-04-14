@@ -1,8 +1,11 @@
 <?php 
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
+<?php
+$itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
+?>
     <div class="page-header">
-        <?php if (strlen($collectionTitle) < 40): ?>
+        <?php if (strlen($itemTitle) < 40): ?>
             <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
         <?php else: ?>
             <h3><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h3>

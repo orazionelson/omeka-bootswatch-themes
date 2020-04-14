@@ -1,5 +1,18 @@
 <?php
 
+function random_featured_exhibit()
+{
+    $html = '';
+    $featuredExhibit = exhibit_builder_random_featured_exhibit();
+    if ($featuredExhibit) {
+        $html .= get_view()->partial('exhibits/single.php', array('exhibit' => $featuredExhibit));
+    } else {
+        $html .= '<p>' . __('You have no featured exhibits.') . '</p>';
+    }
+    $html = apply_filters('exhibit_builder_display_random_featured_exhibit', $html);
+    return $html;
+}
+
 function public_nav_main_bootstrap() {
     $partial = array('common/menu-main-partial.phtml', 'default');
     $nav = public_nav_main();  // this looks like $this->navigation()->menu() from Zend
@@ -21,6 +34,22 @@ function public_nav_pills_bootstrap() {
     return $nav->render();
 }
 
+function public_nav_pills_bootstrap_exhibit() {
+    $partial = array('common/menu-item-pills-partial.phtml', 'default');
+    $nav = public_nav_items(array(
+        array(
+            'label' => __('Browse All'),
+            'uri' => url('exhibits')
+        ),
+        array(
+            'label' => __('Browse by Tag'),
+            'uri' => url('exhibits/tags')
+        )
+    ));  // this looks like $this->navigation()->menu() from Zend
+    $nav->setPartial($partial);
+    return $nav->render();
+}
+
 function recent_items_bootstrap($recentItems,$type){
 	if($type=='list'){
 		return recent_items($recentItems);
@@ -38,6 +67,19 @@ function recent_items_bootstrap($recentItems,$type){
     }
     return $html;
 		}
+        elseif($type=='sidebar'){
+    $items = get_recent_items($recentItems);
+    if ($items) {
+        $html = '';
+        foreach ($items as $item) {
+            $html .= get_view()->partial('items/sidebar.php', array('item' => $item));
+            release_object($item);
+        }
+    } else {
+        $html = '<p>' . __('No recent items available.') . '</p>';
+    }
+    return $html;
+        }
 }
 
 function bs_link_logo_to_navbar($text = null, $props = array())
