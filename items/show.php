@@ -18,7 +18,8 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 <ul id="image-gallery" class="clearfix">
                     <?php foreach ($images as $image): ?>
                         <?php if ($imagesCount === 1): ?>
-                            <img class="card-img-top" src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" />
+                           <!--  <img class="card-img-top" src="<?php //echo url('/'); ?>files/original/<?php //echo $image->filename; ?>" /> -->
+                            <?php echo files_for_item(array('imageSize' => 'fullsize','linkToFile' => true)); ?>
                         <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                 </ul>
