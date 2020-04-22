@@ -19,7 +19,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                     <?php foreach ($images as $image): ?>
                         <?php if ($imagesCount === 1): ?>
                            <!--  <img class="card-img-top" src="<?php //echo url('/'); ?>files/original/<?php //echo $image->filename; ?>" /> -->
-                            <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
+                            <?php echo files_for_item(array('imageSize' => 'fullsize','linkToFile' => true)); ?>
                         <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                 </ul>
