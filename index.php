@@ -31,13 +31,13 @@
 	$main_add="";
 	$sidebar_add="";
 	if ($sidebar_pos=='left'){
-		$main_add="col-md-10 order-2";
+		$main_add="col-md-9 order-2";
 		$sidebar_add="order-1";
 		$style_sidebar="pr-0 pl-3";
 		$style_main="pl-0";
 	}
 	if ($sidebar_pos=='right'){
-		$main_add="col-md-10 order-2";
+		$main_add="col-md-9 order-2";
 		$sidebar_add="order-3";
 		$style_sidebar="pl-0 pr-3";
 		$style_main="pr-0";
@@ -68,7 +68,7 @@
 		<div class="container-fluid m-5">
 			<div class="row">
 				<?php if ($sidebar_pos=='left' || $sidebar_pos=='right'): ?>
-					<div class="col-md-2 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
+					<div class="col-md-3 <?php echo $sidebar_add;?> <?php echo $style_sidebar;?>">
 						<?php if (get_theme_option('display_sidebar_menu') !== '0'): ?>
 							<?php echo public_nav_sidebar_bootstrap(); ?>
 						<?php endif; ?>
