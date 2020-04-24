@@ -22,7 +22,7 @@
 			<?php endif; ?>
 		</div>
   <div class="card-body">
-    <h5 class="card-title"><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h5>
+    <h3 class="card-title"><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h3>
     <p class="card-text"><?php echo snippet_by_word_count(metadata($exhibit, 'description', array('no_escape' => true))); ?></p>
   </div>
 
