@@ -44,18 +44,22 @@
                 </div>
             </div>
         
-            <?php foreach (loop('items') as $item): ?>
-            <div class="item container">
+            <?php $rowCount = 1; foreach (loop('items') as $item): ?>
+            <div class="item container p-1 <?php if ($rowCount % 2 == 0) echo 'bg-light';?>">
                 <div class="row">
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
+
+ echo link_to_item(item_image()); 
 							//echo file_display_url($image[0]);
-                                echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
+                                //echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
                                 
                             } else {
-								echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class="img-thumbnail img-responsive">');
+                                //echo link_to_item(item_image()); 
+								echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class=" img-responsive">');
                             }
+
                         ?>
                     </div>
                     <div class="col-sm-3 col-md-2">
@@ -74,7 +78,7 @@
                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <?php $rowCount++;endforeach; ?>
             <div id="outputs">
                 <span class="outputs-label"><?php echo __('Output Formats'); ?></span>
                 <?php echo output_format_list(false); ?>
