@@ -45,13 +45,13 @@
             </div>
         
             <?php $rowCount = 1; foreach (loop('items') as $item): ?>
-            <div class="item container p-1 <?php if ($rowCount % 2 == 0) echo 'bg-light';?>">
+            <div class="item container p-1 <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
                 <div class="row">
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
 
- echo link_to_item(item_image()); 
+                            echo link_to_item(item_image()); 
 							//echo file_display_url($image[0]);
                                 //echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
                                 
