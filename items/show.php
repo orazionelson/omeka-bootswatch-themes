@@ -129,7 +129,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>
     <div id="collection" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Collection'); ?></h3></div>
+        <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Collection'); ?></h4></div>
         <div class="col-sm-9 element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
     </div>
 <?php endif; ?>
@@ -137,19 +137,19 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 <!-- The following prints a list of all tags associated with the item -->
 <?php if (metadata('item', 'has tags')): ?>
     <div id="item-tags" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Tags'); ?></h3></div>
+        <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Tags'); ?></h4></div>
         <div class="col-sm-9 element-text"><?php echo tag_string('item'); ?></div>
     </div>
 <?php endif;?>
 
 <!-- The following prints a citation for this item. -->
 <div id="item-citation" class="row element">
-    <div class="col-sm-3 text-md-right"><h3><?php echo __('Citation'); ?></h3></div>
+    <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Citation'); ?></h4></div>
     <div class="col-sm-9 element-text"><?php echo metadata('item', 'citation', array('no_escape' => true)); ?></div>
 </div>
 
 <div id="item-output-formats" class="row element">
-    <div class="col-sm-3 text-md-right"><h3><?php echo __('Output Formats'); ?></h3></div>
+    <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Output Formats'); ?></h4></div>
     <div class="col-sm-9 element-text"><?php echo output_format_list(); ?></div>
 </div>
 </div>
