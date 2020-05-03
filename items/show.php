@@ -109,7 +109,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
     <div id="itemfiles" class="row element">
         <div class="col-sm-3 text-md-right"><h3><?php echo __('Files'); ?></h3></div>
         <!-- <div class="sol-sm-9 element-text"><?php //echo files_for_item(); ?></div> -->
-        <div class="row">
+        <div class="col-sm-9 row">
             <?php $images = $item->Files; $imagesCount = 1; ?>
             <?php if ($images): ?>
                 <!-- <div class="col-md-4" > -->
