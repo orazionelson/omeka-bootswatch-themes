@@ -102,20 +102,14 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 
 <!-- ---- -->
 </div>
-<?php echo all_element_texts('item'); ?>
 
-<!-- The following returns all of the files associated with an item. -->
-<?php if (metadata('item', 'has files')): ?>
-    <div id="itemfiles" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Files'); ?></h3></div>
-        <!-- <div class="sol-sm-9 element-text"><?php //echo files_for_item(); ?></div> -->
-        <div class="col-sm-9 row">
+<div class="row p-3">
             <?php $images = $item->Files; $imagesCount = 1; ?>
             <?php if ($images): ?>
                 <!-- <div class="col-md-4" > -->
                     <!-- <ul id="image-gallery" class="clearfix"> -->
                     <?php foreach ($images as $image): ?>
-                        <div class="col-md-4" >
+                        <div class="col-md-3" >
                             <?php echo file_markup($image,array('linkToFile' => false)); ?>
                         </div>
                     <?php $imagesCount++; endforeach; ?>
@@ -123,8 +117,28 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 <!-- </div> -->
             <?php endif; ?>
         </div>
-    </div>
-<?php endif; ?>
+
+<?php echo all_element_texts('item'); ?>
+
+<!-- The following returns all of the files associated with an item. -->
+<?php //if (metadata('item', 'has files')): ?>
+    <!-- <div id="itemfiles" class="row element">
+        <div class="col-sm-3 text-md-right"><h3><?php echo __('Files'); ?></h3></div> -->
+        
+        <!-- <div class="col-sm-9 row">
+            <?php $images = $item->Files; $imagesCount = 1; ?>
+            <?php if ($images): ?>
+                    <ul id="image-gallery" class="clearfix">
+                    <?php foreach ($images as $image): ?>
+                        <div class="col-md-4" >
+                            <?php echo file_markup($image,array('linkToFile' => false)); ?>
+                        </div>
+                    <?php $imagesCount++; endforeach; ?>
+               
+            <?php endif; ?>
+        </div>
+    </div> -->
+<?php //endif; ?>
 
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>
