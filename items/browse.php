@@ -57,7 +57,8 @@
                                 
                             } else {
                                 //echo link_to_item(item_image()); 
-								echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class=" img-responsive">');
+								//echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class=" img-responsive">');
+                                echo link_to_item('<img alt="default" src="'.img('../../../application/views/scripts/images/fallback-file.png').'" class=" img-responsive">');
                             }
 
                         ?>
