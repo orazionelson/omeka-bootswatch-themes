@@ -44,12 +44,12 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php $exhibitCount = 0; ?>
 <?php foreach (loop('exhibit') as $exhibit): ?>
     <?php $exhibitCount++; ?>
-    <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even'; else echo ' odd'; ?>">
+    <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even bg-light'; else echo ' odd'; ?>">
         <div class="order-md-1 order-2 col-md-3 px-2 px-md-2" style="width:130px">
         <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); 
             else:
-                $exhibitImage = '<img alt="default" src="'.img('defaultImage@2x.jpg').'" class="img-thumbnail img-responsive">';
+                $exhibitImage = '<img alt="default" src="'.img('../../../application/views/scripts/images/fallback-file.png').'" class="img-thumbnail img-responsive">';
                 echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage); 
                 ?>
         <?php endif; ?>
