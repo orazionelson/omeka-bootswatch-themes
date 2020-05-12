@@ -12,7 +12,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
         <?php endif; ?>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-12">
             <?php $images = $item->Files; $imagesCount = 1; ?>
             <?php if ($images): ?>
                 <div class="clearfix row" id="image-gallery gallery" data-toggle="modal" data-target="#exampleModal">
@@ -109,7 +109,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 <!-- <div class="col-md-4" > -->
                     <!-- <ul id="image-gallery" class="clearfix"> -->
                     <?php foreach ($images as $image): ?>
-                        <div class="col-md-3" >
+                        <div class="col-md-3 col-sm-6 col-xs-12 p-sm-2 p-xs-2" >
                             <?php echo file_markup($image,array('linkToFile' => false)); ?>
                         </div>
                     <?php $imagesCount++; endforeach; ?>
