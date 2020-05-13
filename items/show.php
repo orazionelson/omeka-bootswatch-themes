@@ -109,7 +109,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 <!-- <div class="col-md-4" > -->
                     <!-- <ul id="image-gallery" class="clearfix"> -->
                     <?php foreach ($images as $image): ?>
-                        <div class="col-md-3 col-sm-6 col-xs-12 p-sm-2 p-xs-2" >
+                        <div class="col-md-3 col-sm-6 col-xs-12 p-2" >
                             <?php echo file_markup($image,array('linkToFile' => false)); ?>
                         </div>
                     <?php $imagesCount++; endforeach; ?>
