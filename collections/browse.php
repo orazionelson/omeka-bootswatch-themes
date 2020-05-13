@@ -37,7 +37,9 @@
                             <?php endif; ?>
                         </div>
                         <div class="col-sm-3">
+                            <h4>
                             <?php echo link_to_collection(); ?>
+                        </h4>
                         </div>
                         <div class="col-sm-3">
                             <?php if ($collection->hasContributor()): ?>
