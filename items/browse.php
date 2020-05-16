@@ -20,11 +20,11 @@
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Creator')] = 'Dublin Core,Creator';
             ?>
-            <div class="browse-items-header hidden-xs container">
+            <div class="browse-items-header d-none d-md-block container">
                 <div class="row">
-                    <div class="col-sm-3 col-md-2">
+                    <div class="col-md-2">
                     </div>
-                    <div class="col-sm-3 col-md-2">
+                    <div class="col-md-2">
                         <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array(
                             'link_tag' => 'li',
                             'list_tag' => 'ul',
@@ -35,23 +35,23 @@
                     <div class="col-sm-3 col-md-2">
                         <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
                     </div>
-                    <div class="hidden-sm col-md-2">
+                    <div class="col-md-2">
                         Subject
                     </div>
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-md-4">
                         Description
                     </div>
                 </div>
             </div>
         
             <?php $rowCount = 1; foreach (loop('items') as $item): ?>
-            <div class="item container p-1 <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
-                <div class="row">
+            <div class="item container <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
+                <div class="row py-3">
                     <div class="col-sm-2 col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
 
-                            echo link_to_item(item_image()); 
+                            echo link_to_item(item_image(),array('class' => 'img-fluid')); 
 							//echo file_display_url($image[0]);
                                 //echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
                                 

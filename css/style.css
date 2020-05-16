@@ -527,10 +527,11 @@ $bootstrap-xl: 1200px;
 
 /*************/
 .browse-items .item .row div a img{
-  max-width: 140px;
-  max-height: 140px;
+  max-width: 100%;
+  height: auto;
   border:1px solid #dee2e6;
   border-radius: 0.25rem;
   background-color: white;
   padding:0.25rem;
 }
+
