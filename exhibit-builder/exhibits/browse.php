@@ -44,7 +44,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php $exhibitCount = 0; ?>
 <?php foreach (loop('exhibit') as $exhibit): ?>
     <?php $exhibitCount++; ?>
-    <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even bg-light'; else echo ' odd'; ?>">
+    <div class="row py-3 exhibit <?php if ($exhibitCount%2==1) echo ' even bg-light'; else echo ' odd'; ?>">
         <!-- <div class="order-md-1 order-2 col-md-3 px-2 px-md-2" style="width:130px"> -->
         <div class="col-md-3 px-2 px-md-2" style="width:130px">
         <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
@@ -61,7 +61,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
     </div>
     
     <!-- <div class="col-6 col-md-4 order-md-3 order-3 px-0 px-md-2"> -->
-    <div class="col-6 order-3 col-md-4 px-0 px-md-2">
+    <div class="col-sm-12 col-xs-12 col-lg-4 order-3 col-md-4 px-md-2">
         <?php if ($exhibitDescription = metadata('exhibit', 'description', array('snippet'=>150))): ?>
         <?php echo $exhibitDescription; ?>
         <?php endif; ?>

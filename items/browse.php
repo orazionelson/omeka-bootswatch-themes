@@ -74,7 +74,7 @@
                     <div class="hidden-sm col-md-2">
                         <?php echo metadata('item', array('Dublin Core', 'Subject')); ?>
                     </div>
-                    <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-12 col-md-4">
                         <?php echo metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150)); ?>
                     </div>
                 
