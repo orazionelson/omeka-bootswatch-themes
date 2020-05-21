@@ -45,7 +45,7 @@
         <?php echo $this->translate($page->getLabel()) ?>
       </a>
         <?php else: ?>
-//added php if statements here-- didnt seem to make a change
+<!-- added php if statements here-- didnt seem to make a change -->
                 <div class="collapse" id="spage_<?php echo $count ?>">
                     <?php foreach($page->getPages() as $child): ?>
                         <?php if( ! $child->isVisible() || !$this->navigation()->accept($child)): continue; ?>

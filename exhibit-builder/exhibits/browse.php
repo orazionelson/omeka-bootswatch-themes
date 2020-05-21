@@ -20,7 +20,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Creator')] = 'Dublin Core,Creator';
             ?>
-    <div class="browse-items-header hidden-xs container">
+    <div class="browse-items-header d-none d-md-block container">
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
                     </div>
@@ -45,7 +45,8 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 <?php foreach (loop('exhibit') as $exhibit): ?>
     <?php $exhibitCount++; ?>
     <div class="row exhibit <?php if ($exhibitCount%2==1) echo ' even bg-light'; else echo ' odd'; ?>">
-        <div class="order-md-1 order-2 col-md-3 px-2 px-md-2" style="width:130px">
+        <!-- <div class="order-md-1 order-2 col-md-3 px-2 px-md-2" style="width:130px"> -->
+        <div class="col-md-3 px-2 px-md-2" style="width:130px">
         <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
             <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); 
             else:
@@ -54,16 +55,19 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
                 ?>
         <?php endif; ?>
     </div>
-        <div class="col-12 order-md-2 order-1 col-md-2  px-md-2">
+        <!-- <div class="col-12 order-md-2 order-1 col-md-2  px-md-2"> -->
+        <div class="col-12 col-md-2  px-md-2">
         <h4><?php echo link_to_exhibit(); ?></h4>
     </div>
     
-    <div class="col-6 col-md-4 order-md-3 order-3 px-0 px-md-2">
+    <!-- <div class="col-6 col-md-4 order-md-3 order-3 px-0 px-md-2"> -->
+    <div class="col-6 order-3 col-md-4 px-0 px-md-2">
         <?php if ($exhibitDescription = metadata('exhibit', 'description', array('snippet'=>150))): ?>
         <?php echo $exhibitDescription; ?>
         <?php endif; ?>
     </div>
-    <div class="col-10 col-md-3 order-md-4 order-4  px-md-3">
+    <!-- <div class="col-10 col-md-3 order-md-4 order-4  px-md-3"> -->
+    <div class="col-10 order-4 col-md-3 px-md-3">
         <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
         <p class="tags"><?php echo $exhibitTags; ?></p>
         <?php endif; ?>

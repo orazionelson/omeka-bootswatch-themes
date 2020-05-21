@@ -8,7 +8,7 @@
     
     <div class="browse-collections">
         <?php if ($total_results > 0): ?>
-            <div class="browse-collections-header hidden-xs">
+            <div class="browse-collections-header d-none d-md-block">
                 <div class="row">
                     <div class="col-sm-2">
                     </div>
