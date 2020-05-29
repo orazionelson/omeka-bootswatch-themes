@@ -67,7 +67,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
         <?php endif; ?>
     </div>
     <!-- <div class="col-10 col-md-3 order-md-4 order-4  px-md-3"> -->
-    <div class="col-10 order-4 col-md-3 px-md-3">
+    <div class="col-12 order-4 col-md-3 px-md-3">
         <?php if ($exhibitTags = tag_string('exhibit', 'exhibits')): ?>
         <p class="tags"><?php echo $exhibitTags; ?></p>
         <?php endif; ?>

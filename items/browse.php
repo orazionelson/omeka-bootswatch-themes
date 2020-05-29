@@ -61,7 +61,7 @@
 
                         ?>
                     </div>
-                    <div class="col-sm-3 col-md-2">
+                    <div class="col-sm-10 col-md-2">
                         <h4>
                         <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?>
                     </h4>

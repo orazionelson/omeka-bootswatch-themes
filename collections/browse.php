@@ -34,7 +34,7 @@
 
                             <?php endif; ?>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-8 col-md-2">
                             <h4>
                             <?php echo link_to_collection(); ?>
                         </h4>
@@ -45,7 +45,7 @@
                                 <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?>
                             <?php endif; ?>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3 col-sm-12">
                             <?php echo link_to_items_browse(__('View the items in %s', metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?>
                         </div>
                     
