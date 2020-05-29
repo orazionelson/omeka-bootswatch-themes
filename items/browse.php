@@ -32,14 +32,12 @@
                             'list_attr' => array( 'class' => 'sort-links-list' )
                         )); ?>
                     </div>
-                    <div class="col-sm-3 col-md-2">
-                        <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Creator'), array('')); ?>
+                    
+                    <div class="col-md-6">
+                        Description
                     </div>
                     <div class="col-md-2">
-                        Subject
-                    </div>
-                    <div class="col-md-4">
-                        Description
+                        Tags
                     </div>
                 </div>
             </div>
@@ -68,14 +66,14 @@
                         <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?>
                     </h4>
                     </div>
-                    <div class="col-sm-3 col-md-2">
-                        <?php echo metadata('item', array('Dublin Core', 'Creator')); ?>
-                    </div>
-                    <div class="hidden-sm col-md-2">
-                        <?php echo metadata('item', array('Dublin Core', 'Subject')); ?>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
                         <?php echo metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150)); ?>
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <?php if (metadata('item', 'has tags')): ?>
+                        
+                            <?php echo tag_string('items'); ?></p>
+                        <?php endif; ?>
                     </div>
                 
                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
