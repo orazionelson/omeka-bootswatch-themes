@@ -34,7 +34,7 @@
 
                             <?php endif; ?>
                         </div>
-                        <div class="col-sm-8 col-md-2">
+                        <div class="col-sm-10 col-md-2">
                             <h4>
                             <?php echo link_to_collection(); ?>
                         </h4>
