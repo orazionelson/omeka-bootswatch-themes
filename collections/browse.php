@@ -9,18 +9,16 @@
     <div class="browse-collections">
         <?php if ($total_results > 0): ?>
             <div class="browse-collections-header d-none d-md-block">
-                <div class="row">
+                <div class="row px-3">
                     <div class="col-sm-2">
                     </div>
-                    <div class="col-sm-3 col-sm-offset-2">
+                    <div class="col-sm-2 col-sm-offset-2">
                         <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
                     </div>
-                    <div class="col-sm-3">
-                        <?php echo browse_sort_links(array('Creator'=>'Dublin Core,Contributor'), array('')); ?>
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         Description
                     </div>
+
                 </div>
             </div>
         
@@ -36,20 +34,19 @@
 
                             <?php endif; ?>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <h4>
                             <?php echo link_to_collection(); ?>
                         </h4>
                         </div>
-                        <div class="col-sm-3">
-                            <?php if ($collection->hasContributor()): ?>
-                                <?php echo metadata('collection', array('Dublin Core', 'Contributor'), array('all'=>true, 'delimiter'=>', ')); ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
+                        
+                        <div class="col-sm-12 col-md-5">
                             <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
                                 <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?>
                             <?php endif; ?>
+                        </div>
+                        <div class="col-sm-3">
+                            <?php echo link_to_items_browse(__('View the items in %s', metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?>
                         </div>
                     
                         <?php fire_plugin_hook('public_collections_browse_each', array('view' => $this, 'collection' => $collection)); ?>
