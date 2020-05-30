@@ -25,7 +25,7 @@
             <?php $rowCount = 1; foreach (loop('collections') as $collection): ?>
                 <div class="collectionp-1 <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
                     <div class="row p-3">
-                        <div class="col-sm-2 pr-2">
+                        <div class="col-sm-12 pr-2">
                             <?php if ($collectionImage = record_image('collection', 'square_thumbnail',array('class' => 'img-responsive img-thumbnail'))): ?>
                                 <?php echo link_to_collection($collectionImage, array('class' => 'img')); ?>
                             <?php else:
@@ -34,7 +34,7 @@
 
                             <?php endif; ?>
                         </div>
-                        <div class="col-sm-10 col-md-2">
+                        <div class="col-sm-12 col-md-2">
                             <h4>
                             <?php echo link_to_collection(); ?>
                         </h4>
