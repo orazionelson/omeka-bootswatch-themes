@@ -45,7 +45,7 @@
             <?php $rowCount = 1; foreach (loop('items') as $item): ?>
             <div class="item container <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
                 <div class="row py-3">
-                    <div class="col-sm-2 col-md-2">
+                    <div class="col-md-2">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
 
@@ -61,7 +61,7 @@
 
                         ?>
                     </div>
-                    <div class="col-sm-10 col-md-2">
+                    <div class="col-sm-12 col-md-2">
                         <h4>
                         <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?>
                     </h4>
