@@ -48,6 +48,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 
                   <!-- Carousel markup: https://getbootstrap.com/docs/4.4/components/carousel/ -->
               <div id="carouselExample" class="carousel slide" data-ride="carousel">
+                <?php if ($imagesCount>2):?>
                   <ol class="carousel-indicators">
                     <?php
                     for ($x = 0; $x < $imagesCount-1; $x++) {
@@ -58,10 +59,8 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                         endif;
                     }
                     ?>
-            <!-- <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExample" data-slide-to="1"></li>
-            <li data-target="#carouselExample" data-slide-to="2"></li>
-            <li data-target="#carouselExample" data-slide-to="3"></li> -->
+            <!-- <li data-target="#carouselExample" data-slide-to="0" class="active"></li> -->
+            <?php endif; ?>
         </ol>
 
         <div class="carousel-inner">
@@ -82,7 +81,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 </div>
 
 
-                <?php if ($imagesCount > 2): echo $imagesCount?>
+                <?php if ($imagesCount > 2): ?>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -112,9 +111,11 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                 <!-- <div class="col-md-4" > -->
                     <!-- <ul id="image-gallery" class="clearfix"> -->
                     <?php foreach ($images as $image): ?>
+                        <?php if ($imagesCount!=1): ?>
                         <div class="col-md-3 col-sm-6 col-xs-12 p-2" >
                             <?php echo file_markup($image,array('linkToFile' => false)); ?>
                         </div>
+                    <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                     <!-- </ul> -->
                 <!-- </div> -->
