@@ -78,9 +78,11 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                         <?php //endif; ?>
                     </div>
                     
-                    <?php $imagesCount++; endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
 
+
+                <?php if ($imagesCount > 2): echo $imagesCount?>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -89,6 +91,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                <?php endif; ?>
             </div>
         </div>
 
