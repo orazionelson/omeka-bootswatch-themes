@@ -519,19 +519,26 @@ $bootstrap-xl: 1200px;
   }
 }
 
-.carousel-inner .carousel-item .item-file .download-file img{
-  object-fit: cover;
-  width:500px;
-  height:300px;
+
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 60vw;
+    max-height:60vw;
+    margin: 1.75rem auto;
+  }
+  
+  .carousel-inner .carousel-item .item-file .download-file img{
+    object-fit: cover;
+    width:60vw;
+    height: 35vw;
+  }
 }
 
-/*************/
-.browse-items .item .row div a img{
-  max-width: 100%;
-  height: auto;
-  border:1px solid #dee2e6;
-  border-radius: 0.25rem;
-  background-color: white;
-  padding:0.25rem;
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item .item-file .download-file img{
+    object-fit: cover;
+    width:90vw;
+    height: 60vw;
+  }
 }
-

@@ -12,7 +12,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
         <?php endif; ?>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-12">
             <?php $images = $item->Files; $imagesCount = 1; ?>
             <?php if ($images): ?>
                 <div class="clearfix row" id="image-gallery gallery" data-toggle="modal" data-target="#exampleModal">
@@ -21,9 +21,9 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                         <div class="col-12">
                             <?php if ($imagesCount === 1): ?>
                                 <!--  <img class="card-img-top" src="<?php //echo url('/'); ?>files/original/<?php //echo $image->filename; ?>" /> -->
-                                <?php echo file_markup($image,array('imageSize' => 'fullsize','linkToFile' => false,'imgAttributes' => array('data-toggle'=>'#carouselExample', 'data-slide-to'=> strval($imagesCount-1) ))); ?>
+                                <?php echo file_markup($image,array('imageSize' => 'fullsize','linkToFile' => false,'imgAttributes' => array('class' => 'w-100','data-toggle'=>'#carouselExample', 'data-slide-to'=> strval($imagesCount-1) ))); ?>
                             <?php else: ?>
-                                <?php echo file_markup($image,array('imageSize' => 'fullsize','linkToFile' => false,'imgAttributes' => array('class' => 'd-none','data-toggle'=>'#carouselExample', 'data-slide-to'=> strval($imagesCount-1) ))); ?>
+                                <?php echo file_markup($image,array('imageSize' => 'fullsize','linkToFile' => false,'imgAttributes' => array('class' => 'w-100 d-none','data-toggle'=>'#carouselExample', 'data-slide-to'=> strval($imagesCount-1) ))); ?>
                             <?php endif; ?>
                         </div>
                     <?php $imagesCount++; endforeach; ?>
@@ -48,6 +48,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 
                   <!-- Carousel markup: https://getbootstrap.com/docs/4.4/components/carousel/ -->
               <div id="carouselExample" class="carousel slide" data-ride="carousel">
+                <?php if ($imagesCount>2):?>
                   <ol class="carousel-indicators">
                     <?php
                     for ($x = 0; $x < $imagesCount-1; $x++) {
@@ -58,10 +59,8 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                         endif;
                     }
                     ?>
-            <!-- <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExample" data-slide-to="1"></li>
-            <li data-target="#carouselExample" data-slide-to="2"></li>
-            <li data-target="#carouselExample" data-slide-to="3"></li> -->
+            <!-- <li data-target="#carouselExample" data-slide-to="0" class="active"></li> -->
+            <?php endif; ?>
         </ol>
 
         <div class="carousel-inner">
@@ -78,9 +77,11 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                         <?php //endif; ?>
                     </div>
                     
-                    <?php $imagesCount++; endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
 
+
+                <?php if ($imagesCount > 2): ?>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -89,6 +90,7 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -102,34 +104,50 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 
 <!-- ---- -->
 </div>
-<?php echo all_element_texts('item'); ?>
 
-<!-- The following returns all of the files associated with an item. -->
-<?php if (metadata('item', 'has files')): ?>
-    <div id="itemfiles" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Files'); ?></h3></div>
-        <!-- <div class="sol-sm-9 element-text"><?php //echo files_for_item(); ?></div> -->
-        <div class="row">
+<div class="row p-3">
             <?php $images = $item->Files; $imagesCount = 1; ?>
             <?php if ($images): ?>
                 <!-- <div class="col-md-4" > -->
                     <!-- <ul id="image-gallery" class="clearfix"> -->
                     <?php foreach ($images as $image): ?>
-                        <div class="col-md-4" >
+                        <?php if ($imagesCount!=1): ?>
+                        <div class="col-md-3 col-sm-6 col-xs-12 p-2" >
                             <?php echo file_markup($image,array('linkToFile' => false)); ?>
                         </div>
+                    <?php endif; ?>
                     <?php $imagesCount++; endforeach; ?>
                     <!-- </ul> -->
                 <!-- </div> -->
             <?php endif; ?>
         </div>
-    </div>
-<?php endif; ?>
+
+<?php echo all_element_texts('item'); ?>
+
+<!-- The following returns all of the files associated with an item. -->
+<?php //if (metadata('item', 'has files')): ?>
+    <!-- <div id="itemfiles" class="row element">
+        <div class="col-sm-3 text-md-right"><h3><?php echo __('Files'); ?></h3></div> -->
+        
+        <!-- <div class="col-sm-9 row">
+            <?php $images = $item->Files; $imagesCount = 1; ?>
+            <?php if ($images): ?>
+                    <ul id="image-gallery" class="clearfix">
+                    <?php foreach ($images as $image): ?>
+                        <div class="col-md-4" >
+                            <?php echo file_markup($image,array('linkToFile' => false)); ?>
+                        </div>
+                    <?php $imagesCount++; endforeach; ?>
+               
+            <?php endif; ?>
+        </div>
+    </div> -->
+<?php //endif; ?>
 
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>
     <div id="collection" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Collection'); ?></h3></div>
+        <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Collection'); ?></h4></div>
         <div class="col-sm-9 element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
     </div>
 <?php endif; ?>
@@ -137,19 +155,19 @@ $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title')));
 <!-- The following prints a list of all tags associated with the item -->
 <?php if (metadata('item', 'has tags')): ?>
     <div id="item-tags" class="row element">
-        <div class="col-sm-3 text-md-right"><h3><?php echo __('Tags'); ?></h3></div>
+        <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Tags'); ?></h4></div>
         <div class="col-sm-9 element-text"><?php echo tag_string('item'); ?></div>
     </div>
 <?php endif;?>
 
 <!-- The following prints a citation for this item. -->
 <div id="item-citation" class="row element">
-    <div class="col-sm-3 text-md-right"><h3><?php echo __('Citation'); ?></h3></div>
+    <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Citation'); ?></h4></div>
     <div class="col-sm-9 element-text"><?php echo metadata('item', 'citation', array('no_escape' => true)); ?></div>
 </div>
 
 <div id="item-output-formats" class="row element">
-    <div class="col-sm-3 text-md-right"><h3><?php echo __('Output Formats'); ?></h3></div>
+    <div class="col-sm-3 text-md-right text-sm-right"><h4><?php echo __('Output Formats'); ?></h4></div>
     <div class="col-sm-9 element-text"><?php echo output_format_list(); ?></div>
 </div>
 </div>
