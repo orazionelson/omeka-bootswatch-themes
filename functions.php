@@ -14,7 +14,7 @@ function random_featured_exhibit()
 }
 
 function public_nav_main_bootstrap() {
-    $partial = array('common/menu-main-partial.phtml', 'default');
+    #$partial = array('common/menu-main-partial.phtml', 'default');
     $nav = public_nav_main();  // this looks like $this->navigation()->menu() from Zend
     $nav->setPartial($partial);
     return $nav->render();
