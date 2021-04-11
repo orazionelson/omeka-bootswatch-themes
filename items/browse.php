@@ -4,15 +4,15 @@
 ?>
 
     <h1><?php echo 'Browse all items'; ?></h1>
-    
+
     <nav class="items-nav navigation secondary-nav">
         <?php
-        echo public_nav_pills_bootstrap(); 
+        echo public_nav_pills_bootstrap();
         ?>
     </nav>
-    
+
     <div class="clearfix"></div>
-    <hr>    
+    <hr>
 
     <div class="browse-items">
         <?php if ($total_results > 0): ?>
@@ -32,7 +32,7 @@
                             'list_attr' => array( 'class' => 'sort-links-list' )
                         )); ?>
                     </div>
-                    
+
                     <div class="col-md-6">
                         Description
                     </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <?php $rowCount = 1; foreach (loop('items') as $item): ?>
             <div class="item container <?php if ($rowCount % 2 != 0) echo 'bg-light';?>">
                 <div class="row py-3">
@@ -49,12 +49,12 @@
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
 
-                            echo link_to_item(item_image(),array('class' => 'img-fluid')); 
+                            echo link_to_item(item_image(),array('class' => 'img-fluid'));
 							//echo file_display_url($image[0]);
                                 //echo link_to_item('<img alt="'.metadata('item', array('Dublin Core', 'Title')).'" title="'.metadata('item', array('Dublin Core', 'Title')).'" src="'.file_display_url($image[0]).'" class="img-thumbnail img-responsive">');
-                                
+
                             } else {
-                                //echo link_to_item(item_image()); 
+                                //echo link_to_item(item_image());
 								//echo link_to_item('<img alt="default" src="'.img('defaultImage@2x.jpg').'" class=" img-responsive">');
                                 echo link_to_item('<img alt="default" src="'.img('../../../application/views/scripts/images/fallback-file.png').'" class=" img-responsive">');
                             }
@@ -71,11 +71,11 @@
                     </div>
                     <div class="col-sm-12 col-md-2">
                         <?php if (metadata('item', 'has tags')): ?>
-                        
+
                             <?php echo tag_string('items'); ?></p>
                         <?php endif; ?>
                     </div>
-                
+
                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                 </div>
             </div>
